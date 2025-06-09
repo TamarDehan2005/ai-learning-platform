@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GenLearn.API\GenLearn.API.csproj" />
+
   </ItemGroup>
 
 </Project>

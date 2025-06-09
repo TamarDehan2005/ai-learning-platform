@@ -1,12 +1,30 @@
+using GenLearn.DAL.Models;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// הגדרת קישור למסד נתונים
+builder.Services.AddScoped<DB_Manager>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000")
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
+
+// בניית האפליקציה - רק כאן!
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

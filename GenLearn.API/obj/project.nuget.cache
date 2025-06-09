@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7+DDYcWI38o=",
+  "dgSpecHash": "oh9NbiLBR4Q=",
   "success": true,
-  "projectFilePath": "C:\\Users\\נעמי\\Documents\\Project.Tamar\\GenLearn\\GenLearn.API\\GenLearn.API.csproj",
+  "projectFilePath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\נעמי\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\נעמי\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

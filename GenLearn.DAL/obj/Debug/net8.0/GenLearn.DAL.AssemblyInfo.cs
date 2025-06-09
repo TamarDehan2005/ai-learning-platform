@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenLearn.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7469982b3f358406f5681126cc8b359126c2480")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenLearn.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenLearn.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
