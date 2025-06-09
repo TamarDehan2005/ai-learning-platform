@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {}
+    "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {
+    "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
+        "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
         "projectName": "GenLearn.API",
-        "projectPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
+        "projectPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
         "packagesPath": "C:\\Users\\נעמי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.API\\obj\\",
+        "outputPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\נעמי\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
-                "projectPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
+              "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+                "projectPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
               }
             }
           }
@@ -92,14 +92,14 @@
         }
       }
     },
-    "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+    "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
         "projectName": "GenLearn.DAL",
-        "projectPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "projectPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
         "packagesPath": "C:\\Users\\נעמי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.DAL\\obj\\",
+        "outputPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\נעמי\\AppData\\Roaming\\NuGet\\NuGet.Config",

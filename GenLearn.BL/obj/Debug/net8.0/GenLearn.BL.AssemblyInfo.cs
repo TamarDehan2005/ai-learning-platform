@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenLearn.BL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7469982b3f358406f5681126cc8b359126c2480")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3f6c07f30a1604d6f1655f7828f3d58093005db")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenLearn.BL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenLearn.BL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

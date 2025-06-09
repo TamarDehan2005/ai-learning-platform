@@ -209,11 +209,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+      "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
       "projectName": "GenLearn.BL",
-      "projectPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+      "projectPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
       "packagesPath": "C:\\Users\\נעמי\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\נעמי\\Desktop\\wwwww\\ai-learning-platform\\GenLearn.BL\\obj\\",
+      "outputPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\נעמי\\AppData\\Roaming\\NuGet\\NuGet.Config",
