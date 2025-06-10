@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {}
+    "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
+    "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
         "projectName": "GenLearn.BL",
-        "projectPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
-        "packagesPath": "C:\\Users\\נעמי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\נעמי\\Desktop\\eeee\\ai-learning-platform\\GenLearn.BL\\obj\\",
+        "projectPath": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.BL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\נעמי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,13 +26,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+                "projectPath": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,7 +47,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -49,6 +57,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[14.0.0, )"
+            },
+            "OpenAI": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Standard.AI.OpenAI": {
+              "target": "Package",
+              "version": "[0.6.0, )"
             }
           },
           "imports": [
@@ -67,7 +83,100 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "projectName": "GenLearn.DAL",
+        "projectPath": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[14.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "OpenAI": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Standard.AI.OpenAI": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

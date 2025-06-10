@@ -65,4 +65,17 @@ public class PromptService_DAL : IPromptService_DAL
         await _context.SaveChangesAsync();
         return true;
     }
+
+    public async Task<Category?> GetCategoryByNameAsync(string name)
+    {
+        return await _context.Categories.FirstOrDefaultAsync(c => c.Name == name);
+    }
+
+    public async Task<SubCategory?> GetSubCategoryByNameAsync(string name, int categoryId)
+    {
+        return await _context.SubCategories
+            .FirstOrDefaultAsync(sc => sc.Name == name && sc.CategoryId == categoryId);
+    }
+
+
 }

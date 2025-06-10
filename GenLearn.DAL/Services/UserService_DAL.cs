@@ -29,6 +29,7 @@ public class UserService_DAL : IUserService_DAL
 
     public async Task<User> AddUser(User user)
     {
+        user.Id = 0;
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
         return user;
