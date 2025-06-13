@@ -704,3 +704,4 @@ C:\Users\USER\Documents\Practicum_tamarrrrr\ai-learning-platform\GenLearn.API\ob
 C:\Users\USER\Documents\Practicum_tamarrrrr\ai-learning-platform\GenLearn.API\obj\Debug\net8.0\GenLearn.D8882538.Up2Date
 C:\Users\USER\Documents\Practicum_tamarrrrr\ai-learning-platform\GenLearn.API\obj\Debug\net8.0\GenLearn.API.genruntimeconfig.cache
 C:\Users\USER\Documents\Practicum_tamarrrrr\ai-learning-platform\GenLearn.API\obj\Debug\net8.0\ref\GenLearn.API.dll
+C:\Users\USER\Documents\Practicum_tamarrrrr\ai-learning-platform\GenLearn.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

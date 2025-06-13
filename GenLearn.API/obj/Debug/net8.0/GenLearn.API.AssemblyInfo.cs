@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("0e9ea070-add7-44a5-97cd-15425a9345b1")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08f9e0bb7fcce8a2c77a295214d2f1b0c0eb9803")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fd97819245973bd6237fe0e96ee351d6d77b20a")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

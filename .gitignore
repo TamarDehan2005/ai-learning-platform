@@ -5,3 +5,7 @@ bin/
    *.suo
    *.userosscache
    *.sln.docstates
+
+  node_modules/
+build/
+ 

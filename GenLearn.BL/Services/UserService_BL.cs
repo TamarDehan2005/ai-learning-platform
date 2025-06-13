@@ -1,10 +1,14 @@
-﻿using GenLearn.BL.Api;
+﻿using AutoMapper;
+using GenLearn.BL.Api;
+using GenLearn.BL.Models;
 using GenLearn.DAL.Api;
 using GenLearn.DAL.Models;
-using GenLearn.BL.Models;
-using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GenLearn.BL.Services
@@ -64,7 +68,7 @@ namespace GenLearn.BL.Services
             var user = await _userDal.GetById(userId);
             if (user == null)
                 return Enumerable.Empty<PromptDTO>();
-           
+
             return _mapper.Map<IEnumerable<PromptDTO>>(user.Prompts);
         }
 
@@ -91,13 +95,19 @@ namespace GenLearn.BL.Services
         public async Task<UserDTO> GetUserDetails(string name, string phone)
         {
             var user = await _userDal.GetUser(name, phone);
-            return  _mapper.Map<UserDTO>(user);
+            return _mapper.Map<UserDTO>(user);
         }
 
         /// Retrieves the user entity by ID (used internally)
         public async Task<User?> GetUserById(int id)
         {
             return await _userDal.GetById(id);
+        }
+        public async Task<UserDTO> CreateUser(UserDTO dto)
+        {
+            var userEntity = _mapper.Map<User>(dto);             // ממפה מ־DTO ל־Entity
+            var createdUser = await _userDal.AddUser(userEntity); // שומר למסד
+            return _mapper.Map<UserDTO>(createdUser);            // מחזיר DTO
         }
 
         public async Task<User?> UpdateUser(User user)
@@ -111,5 +121,13 @@ namespace GenLearn.BL.Services
         }
 
 
+    
+
+
+       
+
     }
+
+
 }
+

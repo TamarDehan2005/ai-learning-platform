@@ -21,20 +21,20 @@ namespace GenLearn.API.Controllers
         }
 
 
-
         [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> RegisterUser([FromBody] UserDTO dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Phone))
-                return BadRequest("יש למלא שם ומספר טלפון.");
+                return BadRequest(new { message = "יש למלא שם ומספר טלפון." });
 
-            var user = await _userService.GetUserDetails(dto.Name, dto.Phone);
+            var existingUser = await _userService.GetUserDetails(dto.Name, dto.Phone);
 
-            if (user == null)
-                return NotFound("משתמש לא נמצא");
+            if (existingUser != null)
+                return Conflict(new { message = "משתמש כבר קיים." });
 
-            // אם נמצא - מחזיר את המשתמש
-            return Ok(user);
+            var createdUser = await _userService.CreateUser(dto); // את זו תכתבי אם עוד לא קיימת
+
+            return Ok(createdUser);
         }
 
 

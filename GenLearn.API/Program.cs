@@ -4,9 +4,12 @@ using GenLearn.BL.Services;
 using GenLearn.DAL.Api;
 using GenLearn.DAL.Models;
 using GenLearn.DAL.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 
 
@@ -44,6 +47,7 @@ builder.Services.AddSwaggerGen(c =>
 
 
 
+
 // CORS
 builder.Services.AddCors(options =>
 {
@@ -68,7 +72,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowReactApp");
-app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
