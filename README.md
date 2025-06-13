@@ -26,16 +26,11 @@ git clone https://github.com/TamarDehan2005/ai-learning-platform.git
 ### 2️⃣ Install Frontend Dependencies
 
 ```bash
+cd ai-learning-platform
 cd client
 npm install --legacy-peer-deps
 ```
-
-### 3️⃣ Restore Backend Dependencies
-
-```bash
-cd server
-dotnet restore
-```
+Please note! This may take a little while.
 
 ---
 
@@ -50,20 +45,21 @@ dotnet restore
 | Database    | LocalDB (SQL Server)   | Lightweight local SQL database used for development (can also use SQLite)  |
 | ORM         | Entity Framework Core  | Object-relational mapper (ORM) for database access in the .NET backend     |
 
-
 ---
 
 ## 💡 Assumptions made during development
 
-- **C#** was chosen as the server side:
-Because it is a high-level language that leads to correct and structured thinking in system development.
+- **C#** was chosen as the server side:  
+Because it is a high-level language that leads to correct and structured thinking in system development.  
 It allows for professional-level maintenance, high security, and clean code management.
-- **React** was chosen as the client side:
-Because it is a modern and flexible solution with advanced tools, a wide community,
+
+- **React** was chosen as the client side:  
+Because it is a modern and flexible solution with advanced tools, a wide community,  
 and great support for rapid development of user interfaces.
-- Use of a local database:
-Since the system was built for educational purposes and not as a commercial product,
-there was no requirement for an external database.
+
+- **Use of a local database**:  
+Since the system was built for educational purposes and not as a commercial product,  
+there was no requirement for an external database.  
 A local solution provides a perfect solution in such projects.
 
 ---
@@ -73,7 +69,6 @@ A local solution provides a perfect solution in such projects.
 ### 🖥️ Frontend
 
 ```bash
-cd client
 npm start
 ```
 
@@ -87,12 +82,11 @@ http://localhost:3000
 
 ### 🔌 Backend
 
-```bash
-cd server
-dotnet run
-```
+Open the solution file (`.sln`) located in the `server` directory using **Visual Studio**.
 
-The backend server will start at:
+Once opened, click on **Run (F5)** to start the backend server.
+
+The backend server will typically be available at:
 
 ```
 http://localhost:5000
