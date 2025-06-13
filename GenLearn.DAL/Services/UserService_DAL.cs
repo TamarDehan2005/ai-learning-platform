@@ -50,16 +50,24 @@ public class UserService_DAL : IUserService_DAL
         return existingUser;
     }
 
-    public async Task<bool> DeleteUser(int id)
+    public async Task<bool> DeleteUser(int userId)
     {
-        var user = await _context.Users.FindAsync(id);
+        var user = await _context.Users
+            .Include(u => u.Prompts)
+            .FirstOrDefaultAsync(u => u.Id == userId);
+
         if (user == null)
             return false;
 
+        _context.Prompts.RemoveRange(user.Prompts);
+
         _context.Users.Remove(user);
+
         await _context.SaveChangesAsync();
+
         return true;
     }
+
     public async Task<User?> GetById(int id)
     {
         return await _context.Users

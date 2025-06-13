@@ -3,6 +3,7 @@ import { Box, Button, Typography, Container } from '@mui/material';
 import HistoryIcon from '@mui/icons-material/History';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const options = [
   {
@@ -22,10 +23,13 @@ const options = [
 export default function Dashboard() {
   const navigate = useNavigate();
 
+  // משוך את המשתמש מהרדוקס
+  const user = useSelector((state) => state.user);
+
   return (
     <Container maxWidth="sm" sx={{ mt: 8, textAlign: 'center' }}>
       <Typography variant="h4" gutterBottom fontWeight="bold">
-        ברוך/ה הבא ללוח התלמיד
+         {user?.name || 'משתמש'} ,!ברוך הבא 
       </Typography>
 
       <Box
@@ -47,6 +51,10 @@ export default function Dashboard() {
               fontWeight: 'bold',
               borderRadius: 3,
               textTransform: 'none',
+              fontSize: '1.5rem',   // גודל טקסט גדול יותר
+              height: 60,           // גובה הכפתור
+              minWidth: '250px',    // רוחב מינימלי
+              px: 4,                // ריפוד אופקי
             }}
           >
             {label}

@@ -52,7 +52,7 @@ const Admin = () => {
             fullWidth
             onClick={() => navigate('/admin/prompts')}
           >
-            ניהול פרומפטים
+            ניהול בקשות
           </Button> 
         </Box>
       </Paper>

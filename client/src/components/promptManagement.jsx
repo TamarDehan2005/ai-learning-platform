@@ -8,6 +8,7 @@ import {
   Grid,
   CircularProgress,
   Box,
+  Pagination,
 } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -18,6 +19,8 @@ const apiBase = process.env.REACT_APP_API_URL;
 export default function PromptManager() {
   const [prompts, setPrompts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const promptsPerPage = 10;
 
   useEffect(() => {
     axios
@@ -32,6 +35,15 @@ export default function PromptManager() {
       });
   }, []);
 
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const indexOfLastPrompt = page * promptsPerPage;
+  const indexOfFirstPrompt = indexOfLastPrompt - promptsPerPage;
+  const currentPrompts = prompts.slice(indexOfFirstPrompt, indexOfLastPrompt);
+  const totalPages = Math.ceil(prompts.length / promptsPerPage);
+
   if (loading) {
     return (
       <Box display="flex" justifyContent="center" mt={4}>
@@ -42,45 +54,60 @@ export default function PromptManager() {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h4" align="center" gutterBottom mt={4}>
-        ניהול פרומפטים
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+         color= "primary" 
+      >
+        ניהול בקשות
       </Typography>
 
       {prompts.length === 0 ? (
         <Typography variant="body1" align="center" color="text.secondary">
-          אין פרומפטים להצגה.
+          אין בקשות להצגה.
         </Typography>
       ) : (
-        <Grid container spacing={3}>
-          {prompts.map((prompt) => (
-            <Grid item xs={12} key={prompt.id}>
-              <Card elevation={3}>
-                <CardContent>
-                  <Box display="flex" justifyContent="space-between" mb={1}>
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <PersonIcon color="action" />
-                      <Typography variant="body2">
-                        משתמש #{prompt.userId}
+        <>
+          <Grid container spacing={3} justifyContent="center">
+            {currentPrompts.map((prompt) => (
+              <Grid item xs={12} md={10} key={prompt.id}>
+                <Card elevation={3}>
+                  <CardContent>
+                    <Box display="flex" justifyContent="space-between" mb={1}>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <PersonIcon color="action" />
+                        <Typography variant="body1">
+                          משתמש #{prompt.userId}
+                        </Typography>
+                      </Box>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <AccessTimeIcon color="action" />
+                        <Typography variant="body1">
+                          {new Date(prompt.createdAt).toLocaleString("he-IL")}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box display="flex" gap={1} alignItems="flex-start">
+                      <ChatBubbleOutlineIcon color="primary" />
+                      <Typography variant="h6" color="text.primary">
+                        {prompt.prompt1}
                       </Typography>
                     </Box>
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <AccessTimeIcon color="action" />
-                      <Typography variant="body2">
-                        {new Date(prompt.createdAt).toLocaleString("he-IL")}
-                      </Typography>
-                    </Box>
-                  </Box>
-                  <Box display="flex" gap={1} alignItems="flex-start">
-                    <ChatBubbleOutlineIcon color="primary" />
-                    <Typography variant="body1" color="text.primary">
-                      {prompt.prompt1}
-                    </Typography>
-                  </Box>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          <Box display="flex" justifyContent="center" mt={4}>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+            />
+          </Box>
+        </>
       )}
     </Container>
   );

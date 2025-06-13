@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {}
+    "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {
+    "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
         "projectName": "GenLearn.API",
-        "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.API\\GenLearn.API.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.API\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
-                "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj"
+              "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj"
               },
-              "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
-                "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
+              "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
               }
             }
           }
@@ -111,14 +111,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
+    "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
         "projectName": "GenLearn.BL",
-        "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\GenLearn.BL.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.BL\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.BL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -139,8 +139,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
-                "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
+              "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+                "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj"
               }
             }
           }
@@ -198,14 +198,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
+    "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
         "projectName": "GenLearn.DAL",
-        "projectPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
+        "projectPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\GenLearn.DAL.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\Practicum_tamarrrrr\\ai-learning-platform\\GenLearn.DAL\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Desktop\\vv\\ai-learning-platform\\GenLearn.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

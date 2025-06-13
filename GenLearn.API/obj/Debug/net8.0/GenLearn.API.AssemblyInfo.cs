@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fd97819245973bd6237fe0e96ee351d6d77b20a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+367bba32934e8948718b805ebf199033856111fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GenLearn.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

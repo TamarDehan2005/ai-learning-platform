@@ -138,7 +138,7 @@ const NewPrompt = () => {
     <Container maxWidth="sm" sx={{ mt: 8 }}>
       <Paper sx={{ p: 4, borderRadius: 3 }}>
         <Typography variant="h5" gutterBottom textAlign="center">
-          שליחת פרומפט חדש
+        🔵 רציתי לדעת 🔵
         </Typography>
 
         {error && (
@@ -197,7 +197,7 @@ const NewPrompt = () => {
 
         <Box textAlign="center">
           <Button variant="contained" onClick={handleSubmit} disabled={sending}>
-            {sending ? 'שולח...' : 'שלח פרומפט'}
+            {sending ? 'שולח...' : 'שלח שאלה'}
           </Button>
         </Box>
 

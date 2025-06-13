@@ -209,7 +209,15 @@ const CategoriesAdmin = () => {
 
   return (
     <Container maxWidth="md" sx={{ mt: 6, mb: 6 }}>
-      <Typography variant="h4" gutterBottom>ניהול קטגוריות ותתי קטגוריות</Typography>
+      <Typography
+  variant="h4"
+  gutterBottom
+  align="center"                     // ← שנה ל‑center כדי למרכז
+  color = "primary" // ← צבע תכלת + הדגשה
+>
+  ניהול קטגוריות ותתי קטגוריות
+</Typography>
+
 
       {/* הוספת קטגוריה חדשה */}
       <Paper sx={{ p: 2, mb: 4 }}>
