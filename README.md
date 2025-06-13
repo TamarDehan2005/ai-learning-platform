@@ -91,6 +91,18 @@ The backend server will typically be available at:
 ```
 http://localhost:5000
 ```
+---
+
+## 🔐 Admin Access (for reviewers)
+
+To explore additional features available only to administrators, you can log in using the following credentials:
+
+```
+Username: Admin  
+Phone: 0000000000
+```
+
+Please use this account to access admin-only sections of the system during your review.
 
 ---
 
