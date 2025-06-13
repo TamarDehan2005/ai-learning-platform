@@ -24,34 +24,47 @@ namespace GenLearn.BL.Services
             _mapper = mapper;
         }
 
-        public async Task<UserDTO> RegisterUserAsync(string name, string phone)
+        public async Task<UserDTO> RegisterUser(string name, string phone)
         {
-            var user = new User { Name = name, Phone = phone };
-            var addedUser = await _userDal.AddUser(user);
-            return _mapper.Map<UserDTO>(addedUser);
+            // חיפוש לפי *שם וטלפון* יחד
+            var existing = await _userDal.GetUser(name, phone);
+
+            if (existing != null)
+            {
+                // כבר קיים → מחזירים
+                return _mapper.Map<UserDTO>(existing);
+            }
+
+            // לא קיים → יוצרים חדש
+            var newUser = new User { Name = name, Phone = phone };
+            var added = await _userDal.AddUser(newUser);
+
+            return _mapper.Map<UserDTO>(added);
         }
 
-        public async Task<string> SubmitPromptAsync(int userId, string categoryName, string subCategoryName, string promptText)
+
+
+        //public async Task<string> SubmitPrompt(int userId, string categoryName, string subCategoryName, string promptText)
+        //{
+        //    // שלב 1: אחסון ההנחיה בדאטהבייס
+        //    var promptDTO = await _promptService.CreatePrompt(userId, categoryName, subCategoryName, promptText);
+
+        //    // שלב 2: שליחה למודל הבינה המלאכותית
+        //    var aiResponse = await _aiModel.GetCompletionAsync(promptText);
+
+        //    // שלב 3: שמירת התשובה בדאטהבייס
+        //    await _promptService.AttachResponse(promptDTO.Id, aiResponse);
+
+        //    return aiResponse;
+        //}
+
+        /// Retrieves all prompts submitted by a specific user
+        public async Task<IEnumerable<PromptDTO>> GetUserHistory(int userId)
         {
-            // שלב 1: אחסון ההנחיה בדאטהבייס
-            var promptDTO = await _promptService.CreatePromptAsync(userId, categoryName, subCategoryName, promptText);
-
-            // שלב 2: שליחה למודל הבינה המלאכותית
-            var aiResponse = await _aiModel.GetCompletionAsync(promptText);
-
-            // שלב 3: שמירת התשובה בדאטהבייס
-            await _promptService.AttachResponseAsync(promptDTO.Id, aiResponse);
-
-            return aiResponse;
-        }
-
-        public async Task<IEnumerable<PromptDTO>> GetUserHistoryAsync(int userId)
-        {
-            var user = await _userDal.GetUserById(userId);
+            var user = await _userDal.GetById(userId);
             if (user == null)
                 return Enumerable.Empty<PromptDTO>();
-
-            // ממפה את רשימת ה-Prompt ל-PromptDTO
+           
             return _mapper.Map<IEnumerable<PromptDTO>>(user.Prompts);
         }
 
@@ -61,6 +74,7 @@ namespace GenLearn.BL.Services
             return _mapper.Map<IEnumerable<UserDTO>>(users);
         }
 
+        /// Returns all prompts from all users
         public async Task<IEnumerable<PromptDTO>> GetAllPrompts()
         {
             var users = await _userDal.GetAllUsers();
@@ -71,6 +85,29 @@ namespace GenLearn.BL.Services
         public async Task<bool> DeleteUser(int userId)
         {
             return await _userDal.DeleteUser(userId);
+        }
+
+        /// Finds a user by name and phone number
+        public async Task<UserDTO> GetUserDetails(string name, string phone)
+        {
+            var user = await _userDal.GetUser(name, phone);
+            return  _mapper.Map<UserDTO>(user);
+        }
+
+        /// Retrieves the user entity by ID (used internally)
+        public async Task<User?> GetUserById(int id)
+        {
+            return await _userDal.GetById(id);
+        }
+
+        public async Task<User?> UpdateUser(User user)
+        {
+            if (string.IsNullOrWhiteSpace(user.Name))
+                throw new ArgumentException("The name cannot be empty.");
+            if (string.IsNullOrWhiteSpace(user.Phone))
+                throw new ArgumentException("Phone number cannot be empty.");
+
+            return await _userDal.UpdateUser(user);
         }
 
 

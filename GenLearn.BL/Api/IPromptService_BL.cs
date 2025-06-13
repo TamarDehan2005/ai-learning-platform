@@ -4,9 +4,9 @@ namespace GenLearn.BL.Api
 {
     public interface IPromptService_BL
     {
-        Task<string> AttachResponseAsync(int promptId, string aiResponse);
-        Task<PromptDTO> CreatePromptAsync(int userId, string categoryName, string subCategoryName, string promptText);
-        Task<IEnumerable<PromptDTO>> GetAllUserPromptsAsync(int userId);
-        Task<string> HandleUserPromptAsync(int userId, string categoryName, string subCategoryName, string promptText);
+        Task<string> AttachResponse(int promptId, string aiResponse);
+        Task<PromptDTO> CreatePrompt(int userId, string categoryName, string subCategoryName, string promptText);
+        Task<IEnumerable<PromptDTO>> GetAllUserPrompts(int userId);
+        Task<string> HandleUserPrompt(int userId, string categoryName, string subCategoryName, string promptText);
     }
 }

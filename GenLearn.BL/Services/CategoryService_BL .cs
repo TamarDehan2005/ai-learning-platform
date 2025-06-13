@@ -16,25 +16,28 @@ public class CategoryService_BL : ICategoryService_BL
         _dal = dal;
         _mapper = mapper;
     }
-
+    
     public async Task<IEnumerable<CategoryDTO>> GetAllCategories()
     {
         var categories = await _dal.GetAllCategories();
         return _mapper.Map<IEnumerable<CategoryDTO>>(categories);
     }
 
+    
     public async Task<CategoryDTO?> GetCategoryById(int id)
     {
         var category = await _dal.GetCategoryById(id);
         return category == null ? null : _mapper.Map<CategoryDTO>(category);
     }
 
+    /// Adds a new category if no existing category has the same name (case-insensitive).
+    /// Returns null if a duplicate exists.
     public async Task<CategoryDTO?> AddCategory(CategoryDTO categoryDto)
     {
         var allCategories = await _dal.GetAllCategories();
         if (allCategories.Any(c => c.Name.Trim().ToLower() == categoryDto.Name.Trim().ToLower()))
         {
-            return null; // שם קטגוריה כבר קיים
+            return null;
         }
 
         var category = _mapper.Map<Category>(categoryDto);
@@ -42,6 +45,7 @@ public class CategoryService_BL : ICategoryService_BL
         return _mapper.Map<CategoryDTO>(added);
     }
 
+    
     public async Task<CategoryDTO?> UpdateCategory(CategoryDTO categoryDto)
     {
         var existing = await _dal.GetCategoryById(categoryDto.Id);
@@ -54,6 +58,8 @@ public class CategoryService_BL : ICategoryService_BL
         return _mapper.Map<CategoryDTO>(updated);
     }
 
+    /// Deletes the category if it exists and has no subcategories.
+    /// Returns false otherwise.
     public async Task<bool> DeleteCategory(int id)
     {
         var category = await _dal.GetCategoryById(id);

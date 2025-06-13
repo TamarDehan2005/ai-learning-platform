@@ -17,7 +17,7 @@ namespace GenLearn.BL.Mapping
             CreateMap<User, UserDTO>().ReverseMap();
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<SubCategory, SubCategoryDTO>().ReverseMap();
-            CreateMap<Prompt, PromptDTO>().ReverseMap();
+            CreateMap<Prompt, PromptDTO>();
         }
     }
 }

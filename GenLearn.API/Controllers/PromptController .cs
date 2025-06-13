@@ -16,7 +16,7 @@ namespace GenLearn.API.Controllers
         }
 
         // POST api/prompts/handle
-        // שולח prompt ל-AI, שומר תשובה ומחזיר את התוצאה
+
         [HttpPost("handle")]
         public async Task<IActionResult> HandleUserPrompt([FromBody] HandlePromptRequest request)
         {
@@ -25,7 +25,7 @@ namespace GenLearn.API.Controllers
 
             try
             {
-                var response = await _promptService.HandleUserPromptAsync(
+                var response = await _promptService.HandleUserPrompt(
                     request.UserId,
                     request.CategoryName,
                     request.SubCategoryName,
@@ -39,23 +39,14 @@ namespace GenLearn.API.Controllers
                 return StatusCode(500, new { error = ex.Message });
             }
         }
-
-        // GET api/prompts/user/5
-        // מחזיר את כל ההנחיות של משתמש ספציפי
-        [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetAllUserPrompts(int userId)
-        {
-            var prompts = await _promptService.GetAllUserPromptsAsync(userId);
-            return Ok(prompts);
-        }
     }
 
     // DTO לקבלת בקשות של HandleUserPrompt
     public class HandlePromptRequest
     {
         public int UserId { get; set; }
-        public string CategoryName{ get; set; }
-        public string SubCategoryName { get; set; }
+        public string CategoryName{ get; set; } = null!;
+        public string SubCategoryName { get; set; } = null!;
         public string PromptText { get; set; } = null!;
     }
 }

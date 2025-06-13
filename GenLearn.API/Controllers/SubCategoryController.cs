@@ -36,18 +36,6 @@ namespace GenLearn.API.Controllers
             return Ok(subCategory);
         }
 
-        // POST api/subcategories
-        [HttpPost]
-        public async Task<ActionResult<SubCategoryDTO>> Create([FromBody] SubCategoryDTO subCategoryDto)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var createdSubCategory = await _subCategoryService.AddSubCategory(subCategoryDto);
-            return CreatedAtAction(nameof(GetById), new { id = createdSubCategory.Id }, createdSubCategory);
-        }
-
-        // PUT api/subcategories/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<SubCategoryDTO>> Update(int id, [FromBody] SubCategoryDTO subCategoryDto)
         {
@@ -57,12 +45,20 @@ namespace GenLearn.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var updatedSubCategory = await _subCategoryService.UpdateSubCategory(subCategoryDto);
-            if (updatedSubCategory == null)
-                return NotFound();
+            try
+            {
+                var updatedSubCategory = await _subCategoryService.UpdateSubCategory(subCategoryDto);
+                if (updatedSubCategory == null)
+                    return NotFound();
 
-            return Ok(updatedSubCategory);
+                return Ok(updatedSubCategory);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while updating the subcategory.");
+            }
         }
+
 
         // DELETE api/subcategories/{id}
         [HttpDelete("{id}")]
@@ -74,5 +70,19 @@ namespace GenLearn.API.Controllers
 
             return NoContent();
         }
+        // POST api/subcategories
+        [HttpPost]
+        public async Task<ActionResult<SubCategoryDTO>> Create([FromBody] SubCategoryDTO subCategoryDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var createdSubCategory = await _subCategoryService.AddSubCategory(subCategoryDto);
+            if (createdSubCategory == null)
+                return Conflict("SubCategory name already exists.");
+
+            return CreatedAtAction(nameof(GetById), new { id = createdSubCategory.Id }, createdSubCategory);
+        }
+
     }
 }

@@ -20,12 +20,13 @@ public class UserService_DAL : IUserService_DAL
             .ToListAsync();
     }
 
-    public async Task<User?> GetUserById(int id)
+    public async Task<User?> GetUser(string name, string phone)
     {
         return await _context.Users
             .Include(u => u.Prompts)
-            .FirstOrDefaultAsync(u => u.Id == id);
+            .FirstOrDefaultAsync(u => u.Name == name && u.Phone == phone);
     }
+
 
     public async Task<User> AddUser(User user)
     {
@@ -34,6 +35,7 @@ public class UserService_DAL : IUserService_DAL
         await _context.SaveChangesAsync();
         return user;
     }
+
 
     public async Task<User?> UpdateUser(User user)
     {
@@ -58,4 +60,11 @@ public class UserService_DAL : IUserService_DAL
         await _context.SaveChangesAsync();
         return true;
     }
+    public async Task<User?> GetById(int id)
+    {
+        return await _context.Users
+            .Include(u => u.Prompts)
+            .FirstOrDefaultAsync(u => u.Id == id);
+    }
+
 }

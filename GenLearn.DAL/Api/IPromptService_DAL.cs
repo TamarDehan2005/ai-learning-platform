@@ -9,8 +9,7 @@ namespace GenLearn.DAL.Api
         Task<IEnumerable<Prompt>> GetAllPrompts();
         Task<Prompt?> GetPromptById(int id);
         Task<Prompt?> UpdatePrompt(Prompt prompt);
-        Task<Category?> GetCategoryByNameAsync(string name);
-    
-        Task<SubCategory?> GetSubCategoryByNameAsync(string name, int categoryId);
+        Task<Category?> GetCategoryByName(string name);
+        Task<SubCategory?> GetSubCategoryByName(string name, int categoryId);
     }
 }

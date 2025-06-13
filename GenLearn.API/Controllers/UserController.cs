@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GenLearn.BL.Api;
+﻿using GenLearn.BL.Api;
 using GenLearn.BL.Models;
+using GenLearn.DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,20 +20,25 @@ namespace GenLearn.API.Controllers
             _promptService = promptService;
         }
 
-      
-        /// <param name="dto">UserDTO עם שם וטלפון</param>
-        
+
+
         [HttpPost("register")]
         public async Task<ActionResult<UserDTO>> RegisterUser([FromBody] UserDTO dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Phone))
                 return BadRequest("יש למלא שם ומספר טלפון.");
 
-            var user = await _userService.RegisterUserAsync(dto.Name, dto.Phone);
+            var user = await _userService.GetUserDetails(dto.Name, dto.Phone);
+
+            if (user == null)
+                return NotFound("משתמש לא נמצא");
+
+            // אם נמצא - מחזיר את המשתמש
             return Ok(user);
         }
 
-        /// שליחת פרומפט למערכת AI והחזרת תגובה
+
+        // POST api/users/submit-prompt
         [HttpPost("submit-prompt")]
         public async Task<ActionResult<string>> SubmitPrompt([FromBody] HandlePromptRequest request)
         {
@@ -41,7 +47,7 @@ namespace GenLearn.API.Controllers
 
             try
             {
-                var response = await _promptService.HandleUserPromptAsync(
+                var response = await _promptService.HandleUserPrompt(
                     request.UserId,
                     request.CategoryName,
                     request.SubCategoryName,
@@ -57,21 +63,20 @@ namespace GenLearn.API.Controllers
         }
 
 
-        /// קבלת היסטוריית למידה לפי מזהה משתמש
+        // GET api/users/{userId}/history
 
         [HttpGet("{userId}/history")]
         public async Task<ActionResult<IEnumerable<PromptDTO>>> GetUserHistory(int userId)
         {
-            var history = await _userService.GetUserHistoryAsync(userId);
+            var history = await _userService.GetUserHistory(userId);
             if (history == null)
                 return NotFound("לא נמצאה היסטוריה למשתמש זה.");
 
             return Ok(history);
         }
 
-       
-        /// קבלת כל המשתמשים במערכת (לצורכי אדמין)
-        
+        // GET api/users/all
+
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<UserDTO>>> GetAllUsers()
         {
@@ -79,9 +84,9 @@ namespace GenLearn.API.Controllers
             return Ok(users);
         }
 
-        
-        /// קבלת כל ההנחיות של כל המשתמשים (לצורכי אדמין)
-       
+
+        // GET api/users/all-prompts
+
         [HttpGet("all-prompts")]
         public async Task<ActionResult<IEnumerable<PromptDTO>>> GetAllPrompts()
         {
@@ -89,9 +94,9 @@ namespace GenLearn.API.Controllers
             return Ok(prompts);
         }
 
-       
-        /// מחיקת משתמש לפי מזהה
-        
+
+        // DELETE api/users/delete/{userId}
+     
         [HttpDelete("delete/{userId}")]
         public async Task<ActionResult> DeleteUser(int userId)
         {
@@ -100,6 +105,55 @@ namespace GenLearn.API.Controllers
                 return NotFound("המשתמש לא נמצא או לא ניתן למחוק אותו.");
 
             return Ok("המשתמש נמחק בהצלחה.");
+        }
+
+        // GET api/users/{userId}
+    
+        [HttpGet("{userId}")]
+        public async Task<ActionResult<UserDTO>> GetUserDetails(int userId)
+        {
+            var user = await _userService.GetUserById(userId);
+            if (user == null)
+                return NotFound("המשתמש לא נמצא.");
+            return Ok(user);
+        }
+
+        // POST api/users/login
+       
+        [HttpPost("login")]
+        public async Task<ActionResult<UserDTO>> CheckUser([FromBody] UserDTO user1)
+        {
+            
+            if (string.IsNullOrWhiteSpace(user1.Name) || string.IsNullOrWhiteSpace(user1.Phone))
+                return BadRequest(new { message = "יש למלא שם ומספר טלפון." });
+
+            var user = await _userService.GetUserDetails(user1.Name, user1.Phone);
+            if (user == null)
+                return NotFound(new { message = "משתמש לא נמצא" });
+
+            return Ok(user);
+        }
+        
+        // PUT api/users/{id}
+      
+        [HttpPut("{id}")]
+        public async Task<ActionResult<User>> UpdateUser(int id, [FromBody] User user)
+        {
+            if (id != user.Id)
+                return BadRequest("ה־ID ב־URL לא תואם ל־ID של המשתמש");
+
+            try
+            {
+                var updated = await _userService.UpdateUser(user);
+                if (updated == null)
+                    return NotFound();
+
+                return Ok(updated);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

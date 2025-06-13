@@ -16,8 +16,8 @@ public class CategoryService_DAL : ICategoryService_DAL
     public async Task<IEnumerable<Category>> GetAllCategories()
     {
         return await _context.Categories
-            .Include(c => c.SubCategories)  // אם את רוצה גם את תתי-הקטגוריות
-            .Include(c => c.Prompts)        // אם רלוונטי להציג את ההיסטוריה לפי קטגוריה
+            .Include(c => c.SubCategories)  
+            .Include(c => c.Prompts)      
             .ToListAsync();
     }
 

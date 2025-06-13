@@ -135,22 +135,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GenLearn.API.Controllers.PromptsController",
-    "Method": "GetAllUserPrompts",
-    "RelativePath": "api/Prompts/user/{userId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "GenLearn.API.Controllers.SubCategoriesController",
     "Method": "GetAll",
     "RelativePath": "api/SubCategories",
@@ -271,6 +255,63 @@
   },
   {
     "ContainingType": "GenLearn.API.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "GenLearn.DAL.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GenLearn.DAL.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GenLearn.API.Controllers.UsersController",
+    "Method": "GetUserDetails",
+    "RelativePath": "api/Users/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GenLearn.BL.Models.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "GenLearn.API.Controllers.UsersController",
     "Method": "GetUserHistory",
     "RelativePath": "api/Users/{userId}/history",
     "HttpMethod": "GET",
@@ -350,6 +391,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GenLearn.API.Controllers.UsersController",
+    "Method": "CheckUser",
+    "RelativePath": "api/Users/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user1",
+        "Type": "GenLearn.BL.Models.UserDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "GenLearn.BL.Models.UserDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "GenLearn.API.Controllers.UsersController",

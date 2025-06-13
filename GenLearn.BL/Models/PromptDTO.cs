@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace GenLearn.BL.Models
 {
     public class PromptDTO
+  
     {
         public int Id { get; set; }
         public int UserId { get; set; }

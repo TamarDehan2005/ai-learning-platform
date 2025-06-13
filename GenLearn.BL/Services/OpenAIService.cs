@@ -18,15 +18,13 @@ public class OpenAIService : IOpenAIService
         _apiKey = configuration["OpenAI:ApiKey"]
             ?? throw new InvalidOperationException("OpenAI API key is missing in configuration.");
 
-        // ✅ שורת הדפסת מפתח לבדיקה
-        Console.WriteLine($"DEBUG - OpenAI API Key Loaded: {_apiKey}");
-
         _httpClient.DefaultRequestHeaders.Authorization =
             new AuthenticationHeaderValue("Bearer", _apiKey);
     }
 
-    public async Task<string> GetCompletionAsync(string prompt)
-    {
+      /// Sends a prompt to the OpenAI API using the Chat Completion endpoint and returns the generated response.
+      public async Task<string> GetCompletionAsync(string prompt)
+      {
         var requestBody = new
         {
             model = "gpt-3.5-turbo",

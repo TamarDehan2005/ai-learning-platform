@@ -66,12 +66,12 @@ public class PromptService_DAL : IPromptService_DAL
         return true;
     }
 
-    public async Task<Category?> GetCategoryByNameAsync(string name)
+    public async Task<Category?> GetCategoryByName(string name)
     {
         return await _context.Categories.FirstOrDefaultAsync(c => c.Name == name);
     }
 
-    public async Task<SubCategory?> GetSubCategoryByNameAsync(string name, int categoryId)
+    public async Task<SubCategory?> GetSubCategoryByName(string name, int categoryId)
     {
         return await _context.SubCategories
             .FirstOrDefaultAsync(sc => sc.Name == name && sc.CategoryId == categoryId);

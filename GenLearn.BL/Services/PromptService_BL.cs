@@ -22,13 +22,13 @@ namespace GenLearn.BL.Services
         }
 
 
-        public async Task<PromptDTO> CreatePromptAsync(int userId, string categoryName, string subCategoryName, string promptText)
+        public async Task<PromptDTO> CreatePrompt(int userId, string categoryName, string subCategoryName, string promptText)
         {
-            var category = await _promptDal.GetCategoryByNameAsync(categoryName);
+            var category = await _promptDal.GetCategoryByName(categoryName);
             if (category == null)
                 throw new Exception($"Category '{categoryName}' not found.");
 
-            var subCategory = await _promptDal.GetSubCategoryByNameAsync(subCategoryName, category.Id);
+            var subCategory = await _promptDal.GetSubCategoryByName(subCategoryName, category.Id);
             if (subCategory == null)
                 throw new Exception($"SubCategory '{subCategoryName}' not found under category '{categoryName}'.");
 
@@ -45,8 +45,8 @@ namespace GenLearn.BL.Services
             return _mapper.Map<PromptDTO>(savedPrompt);
         }
 
-
-        public async Task<string> AttachResponseAsync(int promptId, string aiResponse)
+        /// Attaches an AI-generated response to an existing prompt
+        public async Task<string> AttachResponse(int promptId, string aiResponse)
         {
             var existingPrompt = await _promptDal.GetPromptById(promptId);
             if (existingPrompt == null)
@@ -58,23 +58,22 @@ namespace GenLearn.BL.Services
             return aiResponse;
         }
 
-        public async Task<string> HandleUserPromptAsync(int userId, string categoryName, string subCategoryName, string promptText)
+        /// Creates a prompt, sends it to OpenAI, saves the response, and returns it
+        public async Task<string> HandleUserPrompt(int userId, string categoryName, string subCategoryName, string promptText)
         {
-            // שלב 1: שמירת ההנחיה לפי שמות
-            var prompt = await CreatePromptAsync(userId, categoryName, subCategoryName, promptText);
+            
+            var prompt = await CreatePrompt(userId, categoryName, subCategoryName, promptText);
 
-            // שלב 2: שליחת הטקסט ל-AI
             var response = await _aiService.GetCompletionAsync(promptText);
 
-            // שלב 3: שמירת התשובה
-            await AttachResponseAsync(prompt.Id, response);
+            await AttachResponse(prompt.Id, response);
 
             return response;
         }
 
-        public async Task<IEnumerable<PromptDTO>> GetAllUserPromptsAsync(int userId)
+        public async Task<IEnumerable<PromptDTO>> GetAllUserPrompts(int userId)
         {
-            var user = await _userDal.GetUserById(userId);
+            var user = await _userDal.GetById(userId);
             if (user == null)
                 return Enumerable.Empty<PromptDTO>();
 

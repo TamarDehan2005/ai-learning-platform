@@ -16,8 +16,8 @@ public class SubCategoryService_DAL : ISubCategoryService_DAL
     public async Task<IEnumerable<SubCategory>> GetAllSubCategories()
     {
         return await _context.SubCategories
-            .Include(sc => sc.Category) // כדי לדעת לאיזו קטגוריה זה שייך
-            .Include(sc => sc.Prompts)  // אם רוצים לראות גם את ה-Prompts
+            .Include(sc => sc.Category)
+            .Include(sc => sc.Prompts)  
             .ToListAsync();
     }
 
